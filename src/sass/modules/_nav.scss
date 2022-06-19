@@ -1,0 +1,189 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+    width: 100%;
+	padding: 2em;
+	background-color: c.$bg-color;
+
+	.nav-link-animation {
+		transition: color 0.25s ease-in-out;
+
+		&:hover {
+			color: rgb(238, 238, 238);
+		}
+	}
+
+	.opened-nav {
+		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 40em;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform: translateX(-100%);
+		background-color: c.$bg-color;
+		transition: transform 0.3s;
+		overflow-y: scroll;
+		overflow-x: hidden;
+
+		&--active {
+			transform: translateX(0);
+		}
+
+		&__buttons {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			margin: 0.25em;
+			padding: 2em 4em;
+		}
+
+		.close-nav {
+			background: none;
+			color: c.$white;
+			font-size: 2rem;
+			cursor: pointer;
+		}
+
+		&__accordion {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 5em;
+			width: 80%;
+
+			&-box {
+				width: 100%;
+				margin-bottom: 2em;
+			}
+
+			&-btn {
+				position: relative;
+				text-align: left;
+				font-size: 1.8rem;
+				background-color: c.$dark;
+				border: none;
+				padding: 1em 2em;
+				margin-bottom: 1em;
+				border-radius: 8px;
+				width: 100%;
+				color: c.$white;
+				cursor: pointer;
+                
+				.fa-angle-down {
+                    position: absolute;
+					right: 20px;
+                    transform: rotate(0);
+                    transition: transform .3s ease-in-out;
+
+                    &--opened {
+                        transform: rotate(180deg);
+                    }
+				}
+			}
+
+			&-links {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: start;
+				height: 0;
+				transition: height 0.4s;
+				overflow: hidden;
+			}
+
+			&-link {
+				position: relative;
+				width: 100%;
+				font-size: 1.7em;
+				text-decoration: none;
+				color: c.$white;
+				padding: 1em;
+				margin-bottom: 1em;
+				margin-left: 1em;
+
+				&::before {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 40%;
+					height: 2px;
+					border-radius: 50px;
+					background-color: c.$main-color;
+					transition: width 0.3s;
+					content: '';
+				}
+
+				&:hover::before {
+					width: 100%;
+				}
+			}
+		}
+
+	}
+
+	&__burger-btn {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		padding: 1em;
+		cursor: pointer;
+
+		&-bars {
+			position: relative;
+		}
+
+		&-bars,
+		&-bars::after,
+		&-bars::before {
+			width: 25px;
+			height: 3px;
+			background-color: c.$white;
+			border-radius: 50px;
+		}
+
+		&-bars::after,
+		&-bars::before {
+			position: absolute;
+			left: 0;
+			content: '';
+		}
+
+		&-bars::after {
+			top: 7px;
+		}
+
+		&-bars::before {
+			bottom: 7px;
+		}
+	}
+
+	&__logo {
+		font-size: 2.7rem;
+		text-decoration: none;
+		color: c.$white;
+		text-transform: uppercase;
+		font-weight: 600;
+
+		.fa-brush {
+			color: c.$main-color;
+		}
+	}
+
+	&__btn {
+		font-size: 2rem;
+		cursor: pointer;
+	}
+
+	.ti-heart {
+		margin: 2em;
+	}
+}
