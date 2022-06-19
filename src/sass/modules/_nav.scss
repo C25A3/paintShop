@@ -5,9 +5,10 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-    width: 100%;
+	width: 100%;
 	padding: 2em;
 	background-color: c.$bg-color;
+	z-index: 1000000;
 
 	.nav-link-animation {
 		transition: color 0.25s ease-in-out;
@@ -22,8 +23,8 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 40em;
-		height: 100vh;
+		width: 45em;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -58,7 +59,7 @@
 			flex-direction: column;
 			align-items: center;
 			margin-top: 5em;
-			width: 80%;
+			width: 85%;
 
 			&-box {
 				width: 100%;
@@ -77,16 +78,16 @@
 				width: 100%;
 				color: c.$white;
 				cursor: pointer;
-                
-				.fa-angle-down {
-                    position: absolute;
-					right: 20px;
-                    transform: rotate(0);
-                    transition: transform .3s ease-in-out;
 
-                    &--opened {
-                        transform: rotate(180deg);
-                    }
+				.fa-angle-down {
+					position: absolute;
+					right: 20px;
+					transform: rotate(0);
+					transition: transform 0.3s ease-in-out;
+
+					&--opened {
+						transform: rotate(180deg);
+					}
 				}
 			}
 
@@ -95,7 +96,6 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: start;
-				height: 0;
 				transition: height 0.4s;
 				overflow: hidden;
 			}
@@ -128,6 +128,38 @@
 			}
 		}
 
+		&__btn {
+			position: relative;
+			margin-bottom: 3em;
+			padding: 1em 2em;
+			width: 100%;
+			border-radius: 8px;
+			font-size: 1.5rem;
+			color: c.$white;
+			background:  c.$main-color2;
+			cursor: pointer;
+			overflow: hidden;
+
+			&::before {
+				display: block;
+				position: absolute;
+				content: '';
+				transition: left 0.5s;
+				z-index: -1;
+				top: -30px;
+				left: -200px;
+				height: 300%;
+				width: 150px;
+				background-image: linear-gradient(-90deg, rgba(119, 112, 112, 0.2), rgba(255, 255, 255, 0.2));
+				transform: rotate(20deg);
+				content: '';
+                z-index: 100;
+			}
+
+			&:hover::before {
+				left: 130%;
+			}
+		}
 	}
 
 	&__burger-btn {
@@ -186,4 +218,12 @@
 	.ti-heart {
 		margin: 2em;
 	}
+}
+
+@media (max-width: 560px) {
+    .nav {
+        .opened-nav {
+            width: 100%;
+        }
+    }
 }

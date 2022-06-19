@@ -1,9 +1,11 @@
 *::-webkit-scrollbar-thumb {
-	background-color: c.$dark;
+	background: rgba(110, 105, 105, 0.445);
 	border-radius: 20rem;
+	border: 1px solid c.$dark3;
+	
 }
 
 *::-webkit-scrollbar {
-	background-color: c.$dark2;
-	width: 1rem;
+	background-color: c.$bg-color;
+	width: .75rem;
 }
